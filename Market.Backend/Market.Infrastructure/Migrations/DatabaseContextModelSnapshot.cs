@@ -193,6 +193,46 @@ namespace Market.Infrastructure.Migrations
                     b.ToTable("UserProductFavorites", (string)null);
                 });
 
+            modelBuilder.Entity("Market.Domain.Entities.Festival.FestivalDayEntity", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("Capacity")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreatedAtUtc")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateOnly>("Date")
+                        .HasColumnType("date");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("ModifiedAtUtc")
+                        .HasColumnType("datetime2");
+
+                    b.Property<TimeOnly>("OpensAt")
+                        .HasColumnType("time");
+
+                    b.Property<string>("Program")
+                        .IsRequired()
+                        .HasMaxLength(2000)
+                        .HasColumnType("nvarchar(2000)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Date")
+                        .IsUnique()
+                        .HasFilter("[IsDeleted]=0");
+
+                    b.ToTable("FestivalDays", (string)null);
+                });
+
             modelBuilder.Entity("Market.Domain.Entities.Finance.CurrencyEntity", b =>
                 {
                     b.Property<int>("Id")
