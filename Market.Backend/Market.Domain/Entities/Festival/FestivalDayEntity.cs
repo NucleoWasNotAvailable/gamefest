@@ -8,7 +8,7 @@ namespace Market.Domain.Entities.Festival
         public DateOnly Date { get; set; }
         public TimeOnly OpensAt { get; set; }
         public int Capacity { get; set; }
-        public string? Program { get; set; }
+        public string Program { get; set; } = string.Empty;
 
         public static class Constraints
         {

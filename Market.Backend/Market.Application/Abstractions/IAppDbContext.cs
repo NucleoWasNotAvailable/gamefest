@@ -1,4 +1,5 @@
-﻿using Market.Domain.Entities.Finance;
+﻿using Market.Domain.Entities.Festival;
+using Market.Domain.Entities.Finance;
 using Market.Domain.Entities.Sales;
 
 namespace Market.Application.Abstractions;
@@ -8,6 +9,7 @@ public interface IAppDbContext
 {
     DbSet<ProductEntity> Products { get; }
     DbSet<ProductCategoryEntity> ProductCategories { get; }
+    DbSet<FestivalDayEntity> FestivalDays { get; }
     DbSet<PromotionEntity> Promotions { get; }
     DbSet<MarketUserEntity> Users { get; }
     DbSet<RefreshTokenEntity> RefreshTokens { get; }
