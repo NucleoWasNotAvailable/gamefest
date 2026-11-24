@@ -1,4 +1,5 @@
 ﻿using Market.Application.Modules.Festival.FestivalDays.Commands.Create;
+using Market.Application.Modules.Festival.FestivalDays.Commands.Delete;
 using Market.Application.Modules.Festival.FestivalDays.Commands.Update;
 using Market.Application.Modules.Festival.FestivalDays.Queries.GetById;
 using Market.Application.Modules.Festival.FestivalDays.Queries.List;
@@ -39,6 +40,13 @@ namespace Market.API.Controllers
         {
             command.Id = id;
             await sender.Send(command, ct);
+        }
+
+        [HttpDelete("{id:int}")]
+        [Authorize(Policy = PolicyNames.Admin)]
+        public async Task Delete(int id, CancellationToken ct)
+        {
+            await sender.Send(new DeleteFestivalDayCommand { Id = id }, ct) ;
         }
     }
 
