@@ -1,4 +1,5 @@
 ﻿using Market.Application.Modules.Festival.FestivalDays.Commands.Create;
+using Market.Application.Modules.Festival.FestivalDays.Commands.Update;
 using Market.Application.Modules.Festival.FestivalDays.Queries.GetById;
 using Market.Application.Modules.Festival.FestivalDays.Queries.List;
 using Market.Shared.Constants;
@@ -26,10 +27,18 @@ namespace Market.API.Controllers
         }
 
         [HttpGet("{id:int}")]
-        public async Task <GetFestivalDayByIdQueryDto> GetById(int id, CancellationToken ct)
+        public async Task<GetFestivalDayByIdQueryDto> GetById(int id, CancellationToken ct)
         {
             var festival = await sender.Send(new GetFestivalDayByIdQuery { Id = id }, ct);
             return festival;
+        }
+
+        [HttpPut("{id:int}")]
+        [Authorize(Policy = PolicyNames.Admin)]
+        public async Task Update(int id, UpdateFestivalDayCommand command, CancellationToken ct)
+        {
+            command.Id = id;
+            await sender.Send(command, ct);
         }
     }
 

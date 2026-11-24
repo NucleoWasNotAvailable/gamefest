@@ -1,5 +1,4 @@
-﻿
-namespace Market.Application.Modules.Festival.FestivalDays.Queries.GetById;
+﻿namespace Market.Application.Modules.Festival.FestivalDays.Queries.GetById;
 
 public class GetFestivalDayByIdQueryHandler(IAppDbContext context) : IRequestHandler<GetFestivalDayByIdQuery, GetFestivalDayByIdQueryDto>
 {
@@ -16,7 +15,7 @@ public class GetFestivalDayByIdQueryHandler(IAppDbContext context) : IRequestHan
                 OpensAt = c.OpensAt
             }).FirstOrDefaultAsync(ct);
 
-        if(festivalDay == null)
+        if (festivalDay == null)
         {
             throw new MarketNotFoundException($"Fetsivalski dan (ID={request.Id}) nije pronadjen");
         }
