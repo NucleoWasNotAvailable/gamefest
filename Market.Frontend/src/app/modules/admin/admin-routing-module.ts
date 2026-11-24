@@ -14,6 +14,7 @@ import {PromotionUpsertComponent} from './catalogs/promotions/promotion-upsert/p
 import {OrderEditComponent} from './orders/order-edit/order-edit.component';
 import {ExchangeRatesComponent} from './finance/exchange-rates/exchange-rates.component';
 import {unsavedChangesGuard} from '../shared/guards/unsaved-changes.guard';
+import {FestivalDaysComponent} from './festival/festival-days/festival-days.component';
 
 const routes: Routes = [
   {
@@ -38,6 +39,12 @@ const routes: Routes = [
       {
         path: 'product-categories',
         component: ProductCategoriesComponent,
+      },
+
+      //FESTIVAL DAYS
+      {
+        path: 'festival-days',
+        component: FestivalDaysComponent
       },
 
       // PROMOTIONS (baneri na početnoj stranici)

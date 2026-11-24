@@ -221,9 +221,11 @@
       "ADMIN": "Administrator",
       "MANAGER": "Menadžer",
       "EMPLOYEE": "Zaposlenik"
+      
     },
     "MENU": {
       "CATALOG": "KATALOG",
+      "FESTIVAL_DAYS": "Dani festivala",
       "CATEGORIES": "Kategorije Proizvoda",
       "PRODUCTS": "Proizvodi",
       "ORDERS_SECTION": "NARUDŽBE",

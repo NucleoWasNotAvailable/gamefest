@@ -224,6 +224,7 @@
     },
     "MENU": {
       "CATALOG": "CATALOG",
+      "FESTIVAL_DAYS": "Festival days",
       "CATEGORIES": "Product Categories",
       "PRODUCTS": "Products",
       "ORDERS_SECTION": "ORDERS",
