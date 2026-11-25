@@ -22,6 +22,7 @@ import { ProductAutocompleteComponent } from './orders/order-edit/product-autoco
 import { ExchangeRatesComponent } from './finance/exchange-rates/exchange-rates.component';
 import { AdminSettingsComponent } from './admin-settings/admin-settings.component';
 import { FestivalDaysComponent } from './festival/festival-days/festival-days.component';
+import { FestivalDayUpsertComponent } from './festival/festival-days/festival-day-upsert/festival-day-upsert.component';
 
 
 @NgModule({
@@ -43,6 +44,7 @@ import { FestivalDaysComponent } from './festival/festival-days/festival-days.co
     ExchangeRatesComponent,
     AdminSettingsComponent,
     FestivalDaysComponent,
+    FestivalDayUpsertComponent,
   ],
   imports: [
     AdminRoutingModule,
