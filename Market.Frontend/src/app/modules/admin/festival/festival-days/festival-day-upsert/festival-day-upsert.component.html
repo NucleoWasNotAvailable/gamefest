@@ -1,0 +1,66 @@
+<h2 mat-dialog-title>
+  {{ isEditMode ? 'Izmjena dana festivala' : 'Novi dan festivala' }}
+</h2>
+
+<mat-dialog-content>
+  @if (form) {
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" id="festival-day-form">
+
+      <!-- Server error (npr. 409 "datum već postoji") -->
+      @if (errorMessage) {
+        <div class="error-banner">
+          <mat-icon>error</mat-icon>
+          <span>{{ errorMessage }}</span>
+        </div>
+      }
+
+      <!-- Date -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Datum</mat-label>
+        <input matInput type="date" formControlName="date" />
+        <mat-error><app-fit-field-error [control]="form.controls.date" /></mat-error>
+      </mat-form-field>
+
+      <!-- TODO: opensAt (type="time"), capacity (type="number"), program (textarea) -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Otvorenje</mat-label>
+        <input matInput type="time" formControlName="opensAt" />
+        <mat-error><app-fit-field-error [control]="form.controls.opensAt" /></mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Kapacitet</mat-label>
+        <input matInput type="number" formControlName="capacity" />
+        <mat-error><app-fit-field-error [control]="form.controls.capacity" /></mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Program</mat-label>
+        <textarea matInput rows="4" formControlName="program"></textarea>
+        <mat-error><app-fit-field-error [control]="form.controls.program" /></mat-error>
+      </mat-form-field>
+
+    </form>
+  }
+
+  @if (isLoading && !form) {
+    <div class="loading-container">
+      <mat-spinner diameter="40"></mat-spinner>
+    </div>
+  }
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button type="button" (click)="onCancel()" [disabled]="isLoading">
+    Odustani
+  </button>
+  <button
+    mat-raised-button
+    color="primary"
+    type="submit"
+    form="festival-day-form"
+    [disabled]="!form || form.invalid || isLoading"
+  >
+    Sačuvaj
+  </button>
+</mat-dialog-actions>

@@ -60,6 +60,11 @@
         {{ 'ADMIN_PANEL.MENU.CATALOG' | translate }}
       </div>
 
+      <a mat-list-item routerLink="/admin/festival-days" routerLinkActive="active">
+        <mat-icon matListItemIcon>calendar_today</mat-icon>
+        <span matListItemTitle>{{ 'ADMIN_PANEL.MENU.FESTIVAL_DAYS' | translate }}</span>
+      </a>
+
       <a mat-list-item routerLink="/admin/product-categories" routerLinkActive="active">
         <mat-icon matListItemIcon>category</mat-icon>
         <span matListItemTitle>{{ 'ADMIN_PANEL.MENU.CATEGORIES' | translate }}</span>
